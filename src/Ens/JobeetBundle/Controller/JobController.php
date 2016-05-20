@@ -20,24 +20,19 @@ class JobController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getEntityManager();
 
-        $query = $em->createQuery(
-            'SELECT j FROM EnsJobeetBundle:Job j WHERE j.created_at > :date'
-        )->setParameter('date', date('Y-m-d H:i:s', time() - 86400 * 30));
-        $entities = $query->getResult();
+        $categories = $em->getRepository('EnsJobeetBundle:Category')->getWithJobs();
 
-        return $this->render('EnsJobeetBundle:job:index.html.twig', array(
-            'jobs' => $entities
+        foreach($categories as $category)
+        {
+            $category->setActiveJobs($em->getRepository('EnsJobeetBundle:Job')->getActiveJobs($category->getId(), $this->container->getParameter('max_jobs_on_homepage')));
+            $category->setMoreJobs($em->getRepository('EnsJobeetBundle:Job')->countActiveJobs($category->getId()) - $this->container->getParameter('max_jobs_on_homepage'));
+        }
+
+        return $this->render('EnsJobeetBundle:Job:index.html.twig', array(
+            'categories' => $categories
         ));
-
-        /*
-        $jobs = $em->getRepository('EnsJobeetBundle:Job')->findAll();
-
-        return $this->render('job/index.html.twig', array(
-            'jobs' => $jobs,
-        ));
-        */
     }
 
     /**
@@ -70,10 +65,14 @@ class JobController extends Controller
      */
     public function showAction(Job $job)
     {
+        $em = $this->getDoctrine()->getManager();
+
         $deleteForm = $this->createDeleteForm($job);
 
+        $entity = $em->getRepository('EnsJobeetBundle:Job')->getActiveJob($job->getId());
+
         return $this->render('job/show.html.twig', array(
-            'job' => $job,
+            'job' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }

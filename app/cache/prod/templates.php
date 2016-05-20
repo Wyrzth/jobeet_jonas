@@ -79,6 +79,11 @@
   'DoctrineBundle:Collector:db.html.twig' => 'A:\\EasyPHP-Devserver-16.1\\eds-www\\jobeet_jonas\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/db.html.twig',
   'DoctrineBundle:Collector:explain.html.twig' => 'A:\\EasyPHP-Devserver-16.1\\eds-www\\jobeet_jonas\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/explain.html.twig',
   'EnsJobeetBundle:Default:index.html.twig' => 'A:\\EasyPHP-Devserver-16.1\\eds-www\\jobeet_jonas\\src\\Ens\\JobeetBundle/Resources/views/Default/index.html.twig',
+  'EnsJobeetBundle::layout.html.twig' => 'A:\\EasyPHP-Devserver-16.1\\eds-www\\jobeet_jonas\\src\\Ens\\JobeetBundle/Resources/views/layout.html.twig',
   '::base.html.twig' => 'A:\\EasyPHP-Devserver-16.1\\eds-www\\jobeet_jonas\\app/Resources\\views/base.html.twig',
   ':default:index.html.twig' => 'A:\\EasyPHP-Devserver-16.1\\eds-www\\jobeet_jonas\\app/Resources\\views/default/index.html.twig',
+  ':job:edit.html.twig' => 'A:\\EasyPHP-Devserver-16.1\\eds-www\\jobeet_jonas\\app/Resources\\views/job/edit.html.twig',
+  ':job:index.html.twig' => 'A:\\EasyPHP-Devserver-16.1\\eds-www\\jobeet_jonas\\app/Resources\\views/job/index.html.twig',
+  ':job:new.html.twig' => 'A:\\EasyPHP-Devserver-16.1\\eds-www\\jobeet_jonas\\app/Resources\\views/job/new.html.twig',
+  ':job:show.html.twig' => 'A:\\EasyPHP-Devserver-16.1\\eds-www\\jobeet_jonas\\app/Resources\\views/job/show.html.twig',
 );

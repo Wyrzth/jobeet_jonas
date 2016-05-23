@@ -20,7 +20,7 @@ class JobController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $categories = $em->getRepository('EnsJobeetBundle:Category')->getWithJobs();
 
